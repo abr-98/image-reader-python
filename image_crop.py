@@ -5,7 +5,7 @@ import numpy as np
 #global refPt, cropping
 refPt = []
 cropping = False
-def click_and_crop(event, x, y, flags, param):
+def user_crop(event, x, y, flags, param):
 	# grab references to the global variables
 	global refPt, cropping
 
@@ -30,8 +30,9 @@ def img_crop(str):
   image=cv2.imread(str)
   clone = image.copy()
   #cv2.imshow("image",image)
+  print("Press r to reset crop and s to save the crop")
   cv2.namedWindow("image")
-  cv2.setMouseCallback("image", click_and_crop)
+  cv2.setMouseCallback("image", user_crop)
   while True:
 	 # display the image and wait for a keypress
 	  cv2.imshow("image", image)
